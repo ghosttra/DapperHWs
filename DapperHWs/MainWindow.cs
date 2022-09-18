@@ -13,6 +13,12 @@ namespace DapperHWs {
             conn = new SqlConnection(ConnectionString);
             conn.Open();
 
+            var Users = conn.Query("select * from Users").Select(s => new { s.Id, s.Name, s.Surname, s.Email, s.BirthDate, s.IsMale, s.CityId }).ToList();
+            var Countries = conn.Query("select * from Countries").Select(s => new { s.Id, s.Title }).ToList();
+            var GoodsCategories = conn.Query("select * from GoodsCategories").Select(s => new { s.Id, s.Title }).ToList();
+            var Cities = conn.Query("select * from Cities").Select(s => new { s.Id, s.Title, s.CountryId }).ToList();
+            var DiscountGoods = conn.Query("select * from DiscountGoods").Select(s => new { s.Id, s.Title, s.CategoryId, s.CountryId, s.StartDateTime, s.FinishDateTime }).ToList();
+
             cbAddCity.DisplayMember = "Title";
             cbAddCity.ValueMember = "Id";
 
@@ -25,13 +31,21 @@ namespace DapperHWs {
             cbAddCategoryId.ValueMember = "Id";
             cbAddCategoryId.DisplayMember = "Title";
 
-            var Cities = conn.Query("select * from Cities").Select(s => new { s.Id, s.Title, s.CountryId }).ToList();
+            cbCC.ValueMember = "Id";
+            cbCC.DisplayMember = "Surname";
+            cbCC.DataSource = Users;
+
+            cbDG.ValueMember = "Id";
+            cbDG.DisplayMember = "Title";
+            cbDG.DataSource = GoodsCategories;
+
+            cbCFC.ValueMember = "Id";
+            cbCFC.DisplayMember = "Title";
+            cbCFC.DataSource = Countries;
+
             cbAddCity.DataSource = Cities;
 
-            var GoodsCategories = conn.Query("select * from GoodsCategories").Select(s => new { s.Id, s.Title }).ToList();
             cbAddCategoryId.DataSource = GoodsCategories;
-
-            var Countries = conn.Query("select * from Countries").Select(s => new { s.Id, s.Title }).ToList();
 
             cbAddCountryId.DataSource = Countries;
             cbAddCountryCategoryId.DataSource = Countries;
@@ -39,8 +53,8 @@ namespace DapperHWs {
             dgvUCategories.DataSource = GoodsCategories;
             dgvUCities.DataSource = Cities;
             dgvUCountry.DataSource = Countries;
-            dgvUCustomer.DataSource = conn.Query("select * from Users").Select(s => new { s.Id, s.Name, s.Surname, s.Email, s.BirthDate, s.IsMale, s.CityId }).ToList();
-            dgvUDiscounts.DataSource = conn.Query("select * from DiscountGoods").Select(s => new { s.Id,s.Title, s.CategoryId, s.CountryId, s.StartDateTime, s.FinishDateTime }).ToList();
+            dgvUCustomer.DataSource = Users;
+            dgvUDiscounts.DataSource = DiscountGoods;
         }
 
         private void bAddClick(object sender, EventArgs e) {
@@ -115,10 +129,10 @@ namespace DapperHWs {
                     if (string.IsNullOrWhiteSpace(tbDiscountName.Text)
                         || dtpUFinish.Value < dtpUStart.Value) return;
 
-                    _command += $"DiscountGoods set Title = '{tbUCategoryName.Text}'," +
+                    _command += $"DiscountGoods set Title = '{tbDiscountName.Text}'," +
                         $" CategoryId = {cbUCategoryId.SelectedValue}," +
                         $" CountryId = {cbUCountryId.SelectedValue}," +
-                        $" StartDateTime = '{bflib.BasicFunctions.DateTimeFormatToStringSQL(dtpUStart.Value)}'" +
+                        $" StartDateTime = '{bflib.BasicFunctions.DateTimeFormatToStringSQL(dtpUStart.Value)}'," +
                         $" FinishDateTime = '{bflib.BasicFunctions.DateTimeFormatToStringSQL(dtpUFinish.Value)}'" +
                         $" where DiscountGoods.Id = {dgvUDiscounts.SelectedRows[0].Cells[0].Value}";
                     break;
@@ -170,7 +184,7 @@ namespace DapperHWs {
                 cbUCountryCity.DisplayMember = "Title";
                 cbUCountryCity.DataSource = countries;
 
-                var country = countries.Select(s =>  s.Id).ToList();
+                var country = countries.Select(s => s.Id).ToList();
 
                 for (int i = 0; i < country.Count; i++)
                     if (country[i] == (int)dgvUCities.SelectedRows[0].Cells[2].Value)
@@ -181,7 +195,7 @@ namespace DapperHWs {
 
         private void dgvUCategories_RowEnter(object sender, DataGridViewCellEventArgs e) {
             if (dgvUCategories.SelectedRows.Count == 1)
-                 tbUCategoryName.Text = dgvUCategories.SelectedRows[0].Cells[1].Value.ToString();
+                tbUCategoryName.Text = dgvUCategories.SelectedRows[0].Cells[1].Value.ToString();
         }
 
         private void dgvUDiscounts_RowEnter(object sender, DataGridViewCellEventArgs e) {
@@ -237,6 +251,26 @@ namespace DapperHWs {
                     break;
             }
             conn.Execute(_command);
+        }
+
+        private void CheckedChanged_rb(object sender, EventArgs e) {
+            cbCC.Enabled = rbCategories.Checked;
+            cbCFC.Enabled = rbCitiesFromCountry.Checked;
+            cbDG.Enabled = rbDiscount.Checked;
+        }
+
+        private void bExecute_Click(object sender, EventArgs e) {
+            if (rbCitiesFromCountry.Checked) {
+                dgvExercises.DataSource = conn.Query($"select * from cities where countryid = {cbCFC.SelectedValue}").Select(s => new {  s.Id, s.Title}).ToList();
+            }
+            else if (rbCategories.Checked) {
+                dgvExercises.DataSource = conn.Query($"select * from GoodsCategories join UserCategory on GoodsCategories.Id = UserCategory.CategoryId where (UserCategory.UserId = {cbCC.SelectedValue})")
+                    .Select(s => new { s.Id, s.Title }).ToList();
+            }
+            else if (rbDiscount.Checked) {
+                dgvExercises.DataSource = conn.Query($"select * from DiscountGoods join GoodsCategories on DiscountGoods.CategoryId = GoodsCategories.Id where GoodsCategories.Id = {cbDG.SelectedValue}")
+                    .Select(s=>new {s.Id,s.Title, s.StartDateTime, s.FinishDateTime}).ToList();
+            }
         }
     }
 }

@@ -57,8 +57,11 @@
             this.dtpAddDiscountStart = new System.Windows.Forms.DateTimePicker();
             this.tbAddDiscountName = new System.Windows.Forms.TextBox();
             this.tpUpdateDelete = new System.Windows.Forms.TabPage();
+            this.bDelete = new System.Windows.Forms.Button();
+            this.bUpdate = new System.Windows.Forms.Button();
             this.tcUpdate = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvUCustomer = new System.Windows.Forms.DataGridView();
             this.lUCity = new System.Windows.Forms.Label();
             this.lUDB = new System.Windows.Forms.Label();
             this.lUEmail = new System.Windows.Forms.Label();
@@ -71,31 +74,38 @@
             this.tbUSurname = new System.Windows.Forms.TextBox();
             this.tbUName = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvUCountry = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.tbUCountryName = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvUCities = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.cbUCountryCity = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbUCityName = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbUCategoryName = new System.Windows.Forms.TextBox();
+            this.dgvUCategories = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvUDiscounts = new System.Windows.Forms.DataGridView();
             this.cbUCategoryId = new System.Windows.Forms.ComboBox();
             this.cbUCountryId = new System.Windows.Forms.ComboBox();
             this.dtpUFinish = new System.Windows.Forms.DateTimePicker();
             this.dtpUStart = new System.Windows.Forms.DateTimePicker();
             this.tbDiscountName = new System.Windows.Forms.TextBox();
-            this.dgvUDiscounts = new System.Windows.Forms.DataGridView();
-            this.dgvUCategories = new System.Windows.Forms.DataGridView();
-            this.dgvUCities = new System.Windows.Forms.DataGridView();
-            this.dgvUCountry = new System.Windows.Forms.DataGridView();
-            this.dgvUCustomer = new System.Windows.Forms.DataGridView();
-            this.bUpdate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbUCategoryName = new System.Windows.Forms.TextBox();
-            this.bDelete = new System.Windows.Forms.Button();
+            this.tpExercises = new System.Windows.Forms.TabPage();
+            this.gbOption = new System.Windows.Forms.GroupBox();
+            this.dgvExercises = new System.Windows.Forms.DataGridView();
+            this.rbCitiesFromCountry = new System.Windows.Forms.RadioButton();
+            this.rbCategories = new System.Windows.Forms.RadioButton();
+            this.rbDiscount = new System.Windows.Forms.RadioButton();
+            this.cbCFC = new System.Windows.Forms.ComboBox();
+            this.cbCC = new System.Windows.Forms.ComboBox();
+            this.cbDG = new System.Windows.Forms.ComboBox();
+            this.bExecute = new System.Windows.Forms.Button();
             this.tbMain.SuspendLayout();
             this.tpAdding.SuspendLayout();
             this.tcAddings.SuspendLayout();
@@ -107,21 +117,25 @@
             this.tpUpdateDelete.SuspendLayout();
             this.tcUpdate.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCustomer)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCountry)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCities)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCategories)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUDiscounts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCategories)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCities)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCountry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCustomer)).BeginInit();
+            this.tpExercises.SuspendLayout();
+            this.gbOption.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExercises)).BeginInit();
             this.SuspendLayout();
             // 
             // tbMain
             // 
             this.tbMain.Controls.Add(this.tpAdding);
             this.tbMain.Controls.Add(this.tpUpdateDelete);
+            this.tbMain.Controls.Add(this.tpExercises);
             this.tbMain.Location = new System.Drawing.Point(12, 12);
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
@@ -444,6 +458,26 @@
             this.tpUpdateDelete.Text = "Update/Delete";
             this.tpUpdateDelete.UseVisualStyleBackColor = true;
             // 
+            // bDelete
+            // 
+            this.bDelete.Location = new System.Drawing.Point(536, 371);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(222, 23);
+            this.bDelete.TabIndex = 3;
+            this.bDelete.Text = "Delete";
+            this.bDelete.UseVisualStyleBackColor = true;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            // 
+            // bUpdate
+            // 
+            this.bUpdate.Location = new System.Drawing.Point(10, 371);
+            this.bUpdate.Name = "bUpdate";
+            this.bUpdate.Size = new System.Drawing.Size(520, 23);
+            this.bUpdate.TabIndex = 2;
+            this.bUpdate.Text = "Update";
+            this.bUpdate.UseVisualStyleBackColor = true;
+            this.bUpdate.Click += new System.EventHandler(this.bUpdate_Click);
+            // 
             // tcUpdate
             // 
             this.tcUpdate.Controls.Add(this.tabPage1);
@@ -478,6 +512,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvUCustomer
+            // 
+            this.dgvUCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvUCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUCustomer.Location = new System.Drawing.Point(3, 3);
+            this.dgvUCustomer.Name = "dgvUCustomer";
+            this.dgvUCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUCustomer.Size = new System.Drawing.Size(739, 170);
+            this.dgvUCustomer.TabIndex = 13;
+            this.dgvUCustomer.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCustomer_RowEnter);
             // 
             // lUCity
             // 
@@ -595,6 +640,17 @@
             this.tabPage2.Text = "Country";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvUCountry
+            // 
+            this.dgvUCountry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvUCountry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUCountry.Location = new System.Drawing.Point(3, 3);
+            this.dgvUCountry.Name = "dgvUCountry";
+            this.dgvUCountry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUCountry.Size = new System.Drawing.Size(742, 298);
+            this.dgvUCountry.TabIndex = 2;
+            this.dgvUCountry.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCountry_RowEnter);
+            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -626,6 +682,17 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvUCities
+            // 
+            this.dgvUCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvUCities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUCities.Location = new System.Drawing.Point(3, 3);
+            this.dgvUCities.Name = "dgvUCities";
+            this.dgvUCities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUCities.Size = new System.Drawing.Size(742, 269);
+            this.dgvUCities.TabIndex = 6;
+            this.dgvUCities.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCities_RowEnter);
             // 
             // label8
             // 
@@ -679,6 +746,35 @@
             this.tabPage4.Text = "Category";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 313);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Name:";
+            // 
+            // tbUCategoryName
+            // 
+            this.tbUCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbUCategoryName.Location = new System.Drawing.Point(55, 310);
+            this.tbUCategoryName.Name = "tbUCategoryName";
+            this.tbUCategoryName.Size = new System.Drawing.Size(681, 20);
+            this.tbUCategoryName.TabIndex = 5;
+            // 
+            // dgvUCategories
+            // 
+            this.dgvUCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvUCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUCategories.Location = new System.Drawing.Point(3, 3);
+            this.dgvUCategories.Name = "dgvUCategories";
+            this.dgvUCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUCategories.Size = new System.Drawing.Size(742, 301);
+            this.dgvUCategories.TabIndex = 4;
+            this.dgvUCategories.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCategories_RowEnter);
+            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -711,6 +807,17 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Discount good";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvUDiscounts
+            // 
+            this.dgvUDiscounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvUDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUDiscounts.Location = new System.Drawing.Point(3, 3);
+            this.dgvUDiscounts.Name = "dgvUDiscounts";
+            this.dgvUDiscounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUDiscounts.Size = new System.Drawing.Size(742, 183);
+            this.dgvUDiscounts.TabIndex = 5;
+            this.dgvUDiscounts.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUDiscounts_RowEnter);
             // 
             // cbUCategoryId
             // 
@@ -756,98 +863,118 @@
             this.tbDiscountName.Size = new System.Drawing.Size(572, 20);
             this.tbDiscountName.TabIndex = 0;
             // 
-            // dgvUDiscounts
+            // tpExercises
             // 
-            this.dgvUDiscounts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvUDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUDiscounts.Location = new System.Drawing.Point(3, 3);
-            this.dgvUDiscounts.Name = "dgvUDiscounts";
-            this.dgvUDiscounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUDiscounts.Size = new System.Drawing.Size(742, 183);
-            this.dgvUDiscounts.TabIndex = 5;
-            this.dgvUDiscounts.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUDiscounts_RowEnter);
+            this.tpExercises.Controls.Add(this.dgvExercises);
+            this.tpExercises.Controls.Add(this.gbOption);
+            this.tpExercises.Location = new System.Drawing.Point(4, 22);
+            this.tpExercises.Name = "tpExercises";
+            this.tpExercises.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExercises.Size = new System.Drawing.Size(768, 400);
+            this.tpExercises.TabIndex = 2;
+            this.tpExercises.Text = "Exercises";
+            this.tpExercises.UseVisualStyleBackColor = true;
             // 
-            // dgvUCategories
+            // gbOption
             // 
-            this.dgvUCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvUCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUCategories.Location = new System.Drawing.Point(3, 3);
-            this.dgvUCategories.Name = "dgvUCategories";
-            this.dgvUCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUCategories.Size = new System.Drawing.Size(742, 301);
-            this.dgvUCategories.TabIndex = 4;
-            this.dgvUCategories.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCategories_RowEnter);
+            this.gbOption.Controls.Add(this.bExecute);
+            this.gbOption.Controls.Add(this.cbDG);
+            this.gbOption.Controls.Add(this.cbCC);
+            this.gbOption.Controls.Add(this.cbCFC);
+            this.gbOption.Controls.Add(this.rbDiscount);
+            this.gbOption.Controls.Add(this.rbCategories);
+            this.gbOption.Controls.Add(this.rbCitiesFromCountry);
+            this.gbOption.Location = new System.Drawing.Point(6, 6);
+            this.gbOption.Name = "gbOption";
+            this.gbOption.Size = new System.Drawing.Size(285, 388);
+            this.gbOption.TabIndex = 0;
+            this.gbOption.TabStop = false;
+            this.gbOption.Text = "Choose an option";
             // 
-            // dgvUCities
+            // dgvExercises
             // 
-            this.dgvUCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvUCities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUCities.Location = new System.Drawing.Point(3, 3);
-            this.dgvUCities.Name = "dgvUCities";
-            this.dgvUCities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUCities.Size = new System.Drawing.Size(742, 269);
-            this.dgvUCities.TabIndex = 6;
-            this.dgvUCities.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCities_RowEnter);
+            this.dgvExercises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExercises.Location = new System.Drawing.Point(297, 6);
+            this.dgvExercises.Name = "dgvExercises";
+            this.dgvExercises.Size = new System.Drawing.Size(465, 388);
+            this.dgvExercises.TabIndex = 1;
             // 
-            // dgvUCountry
+            // rbCitiesFromCountry
             // 
-            this.dgvUCountry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvUCountry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUCountry.Location = new System.Drawing.Point(3, 3);
-            this.dgvUCountry.Name = "dgvUCountry";
-            this.dgvUCountry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUCountry.Size = new System.Drawing.Size(742, 298);
-            this.dgvUCountry.TabIndex = 2;
-            this.dgvUCountry.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCountry_RowEnter);
+            this.rbCitiesFromCountry.AutoSize = true;
+            this.rbCitiesFromCountry.Checked = true;
+            this.rbCitiesFromCountry.Location = new System.Drawing.Point(6, 19);
+            this.rbCitiesFromCountry.Name = "rbCitiesFromCountry";
+            this.rbCitiesFromCountry.Size = new System.Drawing.Size(111, 17);
+            this.rbCitiesFromCountry.TabIndex = 0;
+            this.rbCitiesFromCountry.TabStop = true;
+            this.rbCitiesFromCountry.Text = "Cities from country";
+            this.rbCitiesFromCountry.UseVisualStyleBackColor = true;
+            this.rbCitiesFromCountry.CheckedChanged += new System.EventHandler(this.CheckedChanged_rb);
             // 
-            // dgvUCustomer
+            // rbCategories
             // 
-            this.dgvUCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvUCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUCustomer.Location = new System.Drawing.Point(3, 3);
-            this.dgvUCustomer.Name = "dgvUCustomer";
-            this.dgvUCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUCustomer.Size = new System.Drawing.Size(739, 170);
-            this.dgvUCustomer.TabIndex = 13;
-            this.dgvUCustomer.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUCustomer_RowEnter);
+            this.rbCategories.AutoSize = true;
+            this.rbCategories.Location = new System.Drawing.Point(6, 69);
+            this.rbCategories.Name = "rbCategories";
+            this.rbCategories.Size = new System.Drawing.Size(128, 17);
+            this.rbCategories.TabIndex = 1;
+            this.rbCategories.Text = "Customer\'s categories";
+            this.rbCategories.UseVisualStyleBackColor = true;
+            this.rbCategories.CheckedChanged += new System.EventHandler(this.CheckedChanged_rb);
             // 
-            // bUpdate
+            // rbDiscount
             // 
-            this.bUpdate.Location = new System.Drawing.Point(10, 371);
-            this.bUpdate.Name = "bUpdate";
-            this.bUpdate.Size = new System.Drawing.Size(520, 23);
-            this.bUpdate.TabIndex = 2;
-            this.bUpdate.Text = "Update";
-            this.bUpdate.UseVisualStyleBackColor = true;
-            this.bUpdate.Click += new System.EventHandler(this.bUpdate_Click);
+            this.rbDiscount.AutoSize = true;
+            this.rbDiscount.Location = new System.Drawing.Point(6, 119);
+            this.rbDiscount.Name = "rbDiscount";
+            this.rbDiscount.Size = new System.Drawing.Size(166, 17);
+            this.rbDiscount.TabIndex = 2;
+            this.rbDiscount.Text = "Discount goods from category";
+            this.rbDiscount.UseVisualStyleBackColor = true;
+            this.rbDiscount.CheckedChanged += new System.EventHandler(this.CheckedChanged_rb);
             // 
-            // label2
+            // cbCFC
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 313);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Name:";
+            this.cbCFC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCFC.FormattingEnabled = true;
+            this.cbCFC.Location = new System.Drawing.Point(41, 42);
+            this.cbCFC.Name = "cbCFC";
+            this.cbCFC.Size = new System.Drawing.Size(238, 21);
+            this.cbCFC.TabIndex = 3;
+            this.cbCFC.Tag = "0";
             // 
-            // tbUCategoryName
+            // cbCC
             // 
-            this.tbUCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbUCategoryName.Location = new System.Drawing.Point(55, 310);
-            this.tbUCategoryName.Name = "tbUCategoryName";
-            this.tbUCategoryName.Size = new System.Drawing.Size(681, 20);
-            this.tbUCategoryName.TabIndex = 5;
+            this.cbCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCC.Enabled = false;
+            this.cbCC.FormattingEnabled = true;
+            this.cbCC.Location = new System.Drawing.Point(41, 92);
+            this.cbCC.Name = "cbCC";
+            this.cbCC.Size = new System.Drawing.Size(238, 21);
+            this.cbCC.TabIndex = 4;
+            this.cbCC.Tag = "1";
             // 
-            // bDelete
+            // cbDG
             // 
-            this.bDelete.Location = new System.Drawing.Point(536, 371);
-            this.bDelete.Name = "bDelete";
-            this.bDelete.Size = new System.Drawing.Size(222, 23);
-            this.bDelete.TabIndex = 3;
-            this.bDelete.Text = "Delete";
-            this.bDelete.UseVisualStyleBackColor = true;
-            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            this.cbDG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDG.Enabled = false;
+            this.cbDG.FormattingEnabled = true;
+            this.cbDG.Location = new System.Drawing.Point(41, 142);
+            this.cbDG.Name = "cbDG";
+            this.cbDG.Size = new System.Drawing.Size(238, 21);
+            this.cbDG.TabIndex = 5;
+            this.cbDG.Tag = "2";
+            // 
+            // bExecute
+            // 
+            this.bExecute.Location = new System.Drawing.Point(6, 359);
+            this.bExecute.Name = "bExecute";
+            this.bExecute.Size = new System.Drawing.Size(273, 23);
+            this.bExecute.TabIndex = 6;
+            this.bExecute.Text = "Execute";
+            this.bExecute.UseVisualStyleBackColor = true;
+            this.bExecute.Click += new System.EventHandler(this.bExecute_Click);
             // 
             // MainWindow
             // 
@@ -878,19 +1005,23 @@
             this.tcUpdate.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCustomer)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCountry)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCities)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUCategories)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUDiscounts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCategories)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCities)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCountry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUCustomer)).EndInit();
+            this.tpExercises.ResumeLayout(false);
+            this.gbOption.ResumeLayout(false);
+            this.gbOption.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExercises)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -970,6 +1101,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUCategoryName;
         private System.Windows.Forms.Button bDelete;
+        private System.Windows.Forms.TabPage tpExercises;
+        private System.Windows.Forms.DataGridView dgvExercises;
+        private System.Windows.Forms.GroupBox gbOption;
+        private System.Windows.Forms.ComboBox cbDG;
+        private System.Windows.Forms.ComboBox cbCC;
+        private System.Windows.Forms.ComboBox cbCFC;
+        private System.Windows.Forms.RadioButton rbDiscount;
+        private System.Windows.Forms.RadioButton rbCategories;
+        private System.Windows.Forms.RadioButton rbCitiesFromCountry;
+        private System.Windows.Forms.Button bExecute;
     }
 }
 
